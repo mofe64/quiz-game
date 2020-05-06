@@ -59,7 +59,7 @@ body.wrong {
 }
 .btn.wrong {
   background-color: var(--wrong);
-  color: black;
+  color: white;
 }
 
 .start-btn,

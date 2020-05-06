@@ -3,7 +3,7 @@ const nextButton = document.getElementById("next-btn");
 const questionContainer = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
-
+const scorecard = document.getElementById("score");
 let shuffledQuestions;
 let currentQuestionIndex;
 let score = 0;
@@ -16,6 +16,7 @@ nextButton.addEventListener("click", () => {
 function startGame() {
   console.log("started");
   score = 0;
+
   startButton.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
@@ -54,6 +55,7 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct;
   if (correct !== undefined) {
     score += 1;
+    scorecard.innerText = `score: ${score}`;
   }
   Array.from(answerButtonsElement.children).forEach((button) => {
     setBodyClass(button, button.dataset.correct);
@@ -63,8 +65,9 @@ function selectAnswer(e) {
   } else {
     startButton.innerText = "Game over Click to restart";
     startButton.classList.remove("hide");
-    nextButton.innerText = `Your Score is ${score}`;
+    nextButton.innerText = `Total Score : ${score}`;
     nextButton.classList.remove("hide");
+    scorecard.innerText = `score: 0`;
   }
 }
 function setBodyClass(element, correct) {

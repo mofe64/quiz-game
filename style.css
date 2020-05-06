@@ -55,10 +55,11 @@ body.wrong {
 
 .btn.correct {
   background-color: var(--correct);
-  color: black;
+  color: white;
 }
 .btn.wrong {
   background-color: var(--wrong);
+  color: black;
 }
 
 .start-btn,
